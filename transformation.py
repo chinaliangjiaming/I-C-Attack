@@ -40,8 +40,8 @@ def I_C_transformation(x, height, width):
     # num_block = 3
     # resize_factor = random.uniform(1, 1.10)
     
-    resize = transforms.Compose([transforms.Resize((int(resize_factor*height), int(resize_factor*width))),
+    resize = transforms.Compose([transforms.Resize((int(resize_factor * height), int(resize_factor * width))),
                                  transforms.CenterCrop((height, width))])
     noise = generate_noise(x, device=torch.device("cuda:0"), scale=noise_scale)
 
-    return resize(shuffle(x=x, num_block=num_block)+noise)
+    return resize(shuffle(x=x, num_block=num_block) + noise)
