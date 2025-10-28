@@ -29,6 +29,7 @@ def shuffle(x, num_block):
     return torch.cat([torch.cat(shuffle_single_dim(x_strip, dim=dims[1], num_block=num_block), dim=dims[1]) for x_strip in x_strips], 
                      dim=dims[0])
 
+# x.shape: (batch_size, channels, height, width)
 def I_C_transformation(x, height, width):
     # attack the undefended targets
     noise_scale = 0.07
